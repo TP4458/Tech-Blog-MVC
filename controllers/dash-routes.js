@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelise = require('../config/connection');
-const { Post, User, Comment } = requrie('..models');
-const withAuth = requrie('../utils/auth');
+const { Post, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get('/editPost/:id', withAuth, async (req, res) => {
   try {
@@ -21,3 +21,5 @@ router.get('/editPost/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
