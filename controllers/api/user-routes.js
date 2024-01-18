@@ -1,6 +1,11 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+router.post('/', async (req, res) => {
+  const dbUserData = await User.findAll();
+  res.status(200).json(dbUserData);
+});
+
 // Authentication for login/signup
 router.post('/', async (req, res) => {
   try {

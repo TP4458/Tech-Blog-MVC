@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    res.statu(500).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -48,7 +48,7 @@ router.get('/posts/:id', async (req, res) => {
   }
 });
 
-router.get('dashboard', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const dbUserData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
@@ -61,22 +61,27 @@ router.get('dashboard', withAuth, async (req, res) => {
 
     const user = dbUserData.get({ plain: true });
 
-    res.render('dashboard', {
-      ...user,
-      logged_in: true,
-    });
+    res.render('dashboard'),
+      {
+        ...user,
+        logged_in: true,
+      };
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/login'),
-  (req, res) => {
+router.get('/login', (req, res) => {
+  try {
     if (req.session.logged_in) {
       res.redirect('/dashboard');
       return;
     }
+
     res.render('login');
-  };
+  } catch (err) {
+    res.status(404).json(err);
+  }
+});
 
 module.exports = router;
