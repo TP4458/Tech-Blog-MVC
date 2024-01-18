@@ -17,7 +17,6 @@ User.init(
       allowNull: false,
       validate: {
         isAlphanumeric: true,
-        // validate min max length at html form
       },
     },
     email: {
@@ -30,7 +29,6 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      // validate min max length at html form
     },
   },
   {
