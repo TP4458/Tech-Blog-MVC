@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+#blog-post {
+  border-style: solid;
+  margin: 50px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
+}
+
+#blog-title {
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+}
+
+#created-blogs {
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+}
+
+#blog-by-id {
+  border-style: solid;
+  margin: 50px 20px 20px 20px;
+  padding: 30px 30px 30px 30px;
+}
+
+#blog_id {
+  display: none;
+}
+
+hr {
+  margin-inline-start: 70px;
+  margin-inline-end: 70px;
+}
+
+.btn {
+  text-align: center;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  margin: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid transparent;
+  outline: none;
+  color: #1a1a1a;
+  background-color: #aeaeae;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+form .form-group {
+  display: block;
+  width: 100%;
+  margin: 0.625rem 0;
+}
+
+form .form-input,
+form .form-textarea {
+  display: block;
+}
+
+form .form-input {
+  width: 100%;
+  padding: 0.65rem;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  margin: 0.6rem 0;
+  font-size: 1rem;
+  border: 1px solid #484848;
+  border-radius: 0.3rem;
+}
+
+/* @media only screen and (min-width: 768px) {
+      #navbarNav {
+      
+      }
+    } */

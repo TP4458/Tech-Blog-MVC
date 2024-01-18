@@ -5,7 +5,7 @@ const newFormHandler = async (event) => {
   if (comment) {
     const response = await fetch(`/api/comments`, {
       method: 'POST',
-      body: JSON.stringify({ comment, post_id }),
+      body: JSON.stringify({ comment_body: comment, post_id }),
       headers: {
         'Content-Type': 'application/json',
       },
