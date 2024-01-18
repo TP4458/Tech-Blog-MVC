@@ -4,11 +4,9 @@
       <p>Post created by: {{user.user_name}} on {{format_date createdAt}}</p>
       <p>{{content}}</p>
     <hr>
-
     <h5>Comments:</h5>  
-
   {{#each comments as |comment|}}
-    <p>{{comment.comment}} - {{user.user_name}} on {{format_date createdAt}}</p>
+    <p>{{comment.comment_body}} - {{user.user_name}} on {{format_date createdAt}}</p>
   
   {{#if logged_in}}
     <a href="./dashboard/editCom/{{comment.id}}" class="edit-link">Edit or delete comment</a>
@@ -20,17 +18,15 @@
  <div class="row mt-4" >
     <form class="form new-post-form">
       <div class="form-group">
-        <label for="post-desc">Comment here:<span id="post_id">{{id}}</span></label>
+        <label for="post-desc">Add your comment here:<span id="post_id">{{id}}</span></label>
         <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">Save</button>
       </div>
     </form>
   </div>
   {{/if}}
-
-
   <script src="./js/comment.js"></script>
 
  

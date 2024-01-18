@@ -3,13 +3,12 @@
     <h3>Edit post:</h3>
   </div>
 </div>
-
     <form class="form edit-post-form">
       <div class="form-group">
         <label for="post-name">Title:</label>
         <input class="form-input" type="text" id="post-name" name="post-name" value="{{post.title}}"/>
       </div>
-      <p>Post created by: {{user.userName}} on {{format_date createdAt}}</p>
+      <p>Post created by: {{user.user_name}} on {{format_date createdAt}}</p>
       <div class="form-group">
         <label for="post-desc">Content:</label>
         <textarea class="form-input" id="post-desc" name="post-desc">{{post.content}}</textarea>
@@ -19,5 +18,4 @@
       </div>
     </form>
   </div>
-
   <script src="./js/editPost.js"></script>
