@@ -1,7 +1,7 @@
-<div class="text-center" id="blog-by-id">
+<div class="text-center" id="post-by-id">
   <h2>{{title}}</h2>
     <hr>
-      <p>Blog post by: {{user.user_name}} on {{format_date createdAt}}</p>
+      <p>Post created by: {{user.user_name}} on {{format_date createdAt}}</p>
       <p>{{content}}</p>
     <hr>
 
@@ -11,17 +11,17 @@
     <p>{{comment.comment}} - {{user.user_name}} on {{format_date createdAt}}</p>
   
   {{#if logged_in}}
-    <a href="./dashboard/editComment/{{comment.id}}" class="edit-link">Edit/Delete Comment</a>
+    <a href="./dashboard/editCom/{{comment.id}}" class="edit-link">Edit or delete comment</a>
   {{/if}}
   {{/each}}
 <br>
 <br>
 {{#if logged_in}}
  <div class="row mt-4" >
-    <form class="form new-blog-form">
+    <form class="form new-post-form">
       <div class="form-group">
-        <label for="blog-desc">Comment here:<span id="blog_id">{{id}}</span></label>
-        <textarea class="form-input" id="blog-desc" name="blog-desc"></textarea>
+        <label for="post-desc">Comment here:<span id="post_id">{{id}}</span></label>
+        <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
