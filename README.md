@@ -4,7 +4,7 @@ This project is a CMS-style blog site similar to a Wordpress site, where develop
 
 - [Installation](#install)
 - [Usage](#usage)
-- [Deployed Application](https://hidden-escarpment-52432.herokuapp.com/)
+- [Deployed Application](https://techblog-mvc-tp4458-494945b75097.herokuapp.com/)
 
 ## User Story
 
@@ -54,3 +54,7 @@ http://localhost:3001
   - bcrypt
   - mysql2
   - sequelize
+
+## Screentshot
+
+![Alt text](image.png)
