@@ -4,22 +4,22 @@ const Comment = require('./comment');
 
 //associations
 User.hasMany(Post, {
-  foreignKey: 'user_id',
+  foreignKey: 'userId',
 });
 User.hasMany(Comment, {
-  foreignKey: 'user_id',
+  foreignKey: 'userId',
 });
 Post.belongsTo(User, {
-  foreignKey: 'user_id',
+  foreignKey: 'userId',
 });
 Post.hasMany(Comment, {
-  foreignKey: 'post_id',
+  foreignKey: 'postId',
 });
 Comment.belongsTo(User, {
-  foreignKey: 'user_id',
+  foreignKey: 'userId',
 });
 Comment.belongsTo(Post, {
-  foreignKey: 'post_id',
+  foreignKey: 'postId',
 });
 
 module.exports = { User, Post, Comment };

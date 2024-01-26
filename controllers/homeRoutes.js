@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['user_name'],
+          attributes: ['userName'],
         },
       ],
     });
@@ -30,7 +30,7 @@ router.get('/posts/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['user_name'],
+          attributes: ['userName'],
         },
         {
           model: Comment,
@@ -41,7 +41,7 @@ router.get('/posts/:id', async (req, res) => {
     const post = dbPostData.get({ plain: true });
     res.render('post', {
       ...post,
-      logged_in: req.session.logged_in,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -50,7 +50,7 @@ router.get('/posts/:id', async (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    const dbUserData = await User.findByPk(req.session.user_id, {
+    const dbUserData = await User.findByPk(req.session.userId, {
       attributes: { exclude: ['password'] },
       include: [
         {
@@ -64,7 +64,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     res.render('dashboard'),
       {
         ...user,
-        logged_in: true,
+        loggedIn: true,
       };
   } catch (err) {
     res.status(500).json(err);
@@ -73,7 +73,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
   try {
-    if (req.session.logged_in) {
+    if (req.session.loggedIn) {
       res.redirect('/dashboard');
       return;
     }

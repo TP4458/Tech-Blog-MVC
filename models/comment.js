@@ -11,11 +11,11 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    comment_body: {
+    commentBody: {
       type: DataTypes.STRING(600),
       allowNull: false,
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -23,7 +23,7 @@ Comment.init(
         key: 'id',
       },
     },
-    post_id: {
+    postId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {

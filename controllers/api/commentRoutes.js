@@ -17,8 +17,8 @@ router.post('/', withAuth, async (req, res) => {
     const newComment = await Comment.create({
       ...req.body,
       comment_body: req.body.comment_body,
-      post_id: req.body.post_id,
-      user_id: req.body.user_id,
+      postId: req.body.postId,
+      userId: req.body.userId,
     });
     res.status(200).json(newComment);
   } catch (err) {
@@ -30,8 +30,8 @@ router.put('/:id', withAuth, async (req, res) => {
   try {
     const editComment = await Comment.update(
       {
-        user_id: req.session.user_id,
-        comment_body: req.body.comment_body,
+        userId: req.session.userId,
+        commentBody: req.body.commentBody,
       },
       {
         where: {
@@ -56,7 +56,7 @@ router.delete(':/id', withAuth, async (req, res) => {
     const dbCommData = await Comment.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        userId: req.session.userId,
       },
     });
     if (!dbCommData) {

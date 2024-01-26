@@ -13,7 +13,7 @@ router.get('/editPost/:id', withAuth, async (req, res) => {
 
       res.render('editPost', {
         ...post,
-        logged_in: true,
+        loggedIn: true,
       });
     }
   } catch (err) {
