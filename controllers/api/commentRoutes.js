@@ -5,8 +5,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const dbCommData = await Comment.findAll();
-    const comments = dbCommData.map((comment) => comment.toJSON());
-    res.status(200).render('/', { comments });
+    res.json(dbCommData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -15,10 +14,9 @@ router.get('/', async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
-      ...req.body,
       commentBody: req.body.commentBody,
       postId: req.body.postId,
-      userId: req.body.userId,
+      userId: req.session.userid,
     });
     res.status(200).json(newComment);
   } catch (err) {

@@ -8,10 +8,10 @@
     <h5>Comments:</h5>  
 
   {{#each comments as |comment|}}
-    <p>{{comment.comment}} - {{user.userName}} on {{format_date createdAt}}</p>
+    <p>{{comment.commentBody}} - {{user.userName}} on {{format_date createdAt}} </p>
   
   {{#if loggedIn}}
-    <a href="./dashboard/editComment/{{comment.id}}" class="edit-link">Edit/Delete Comment</a>
+    <a href="/dashboard/editComment/{{comment.id}}" class="edit-link">Edit/Delete Comment</a>
   {{/if}}
   {{/each}}
 
@@ -25,10 +25,10 @@
 
 {{#if loggedIn}}
  <div class="row mt-4" >
-    <form class="form new-blog-form">
+    <form class="form new-post-form">
       <div class="form-group">
-        <label for="blog-desc">Comment here:<span id="blog_id">{{id}}</span></label>
-        <textarea class="form-input" id="blog-desc" name="blog-desc"></textarea>
+        <label for="post-desc">Comment here:</label>
+        <textarea class="form-input" id="comment-desc" name="comment-desc"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -38,6 +38,6 @@
   {{/if}}
 
 
-  <script src="./js/comment.js"></script>
+  <script src="/js/comment.js"></script>
 
  
