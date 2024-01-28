@@ -1,33 +1,37 @@
 <div class='row'>
   <div class='col-auto'>
-    <h2>{{userName}}</h2>
+    <h2>Welcome, {{userName}}!</h2>
   </div>
 </div>
+
 <div class='row mt-4'>
   <div class='col-md-6'>
-    <h3>Create a New Post:</h3>
-    <form class='form new-post-form'>
+    <h3>Create a New Blog Post:</h3>
+
+    <form class='form new-blog-form'>
       <div class='form-group'>
-        <label for='post-name'>Title:</label>
-        <input class='form-input' type='text' id='post-name' name='post-name' />
+        <label for='blog-name'>Title:</label>
+        <input class='form-input' type='text' id='blog-name' name='blog-name' />
       </div>
       <div class='form-group'>
-        <label for='post-desc'>Content:</label>
-        <textarea class='form-input' id='post-desc' name='post-desc'></textarea>
+        <label for='blog-desc'>Content:</label>
+        <textarea class='form-input' id='blog-desc' name='blog-desc'></textarea>
       </div>
       <div class='form-group'>
         <button type='submit' class='btn btn-primary'>Create</button>
       </div>
     </form>
   </div>
+
   {{#if posts.length}}
-    <div class='col-md-6 post-list'>
-      <h3>Current posts:</h3>
+    <div class='col-md-6 blog-list'>
+      <h3>Current Blog Posts:</h3>
+
       {{#each posts as |post|}}
         <div class='row mb-2'>
           <div class='col-md-8'>
             <h4><a
-                id='created-posts'
+                id='created-blogs'
                 href='/posts/{{post.id}}'
               >{{post.title}}</a></h4>
           </div>
@@ -44,5 +48,6 @@
     </div>
   {{/if}}
 </div>
+
 <script src='./js/dashboard.js'></script>
 <script src='./js/editPost.js'></script>

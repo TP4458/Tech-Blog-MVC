@@ -1,17 +1,18 @@
 <div class='row mt-4'>
+  {{! <div class="col-md-6"> }}
   <form class='form edit-comment-form'>
     <div class='form-group'>
-      <label for='post-desc'>Edit comment here:<span
-          id='post_id'
+      <label for='blog-desc'>Edit comment here:<span
+          id='blog_id'
         >{{id}}</span></label>
       <textarea
         class='form-input'
         id='comment'
-        name='post-desc'
-      >{{comment.comment_content}}</textarea>
+        name='blog-desc'
+      >{{comment.commentBody}}</textarea>
     </div>
     <div class='form-group'>
-      <button type='submit' class='btn btn-primary'>Save</button>
+      <button type='submit' class='btn btn-primary'>Create</button>
       <button
         class='btn btn-sm btn-danger'
         id='delete-comment'
