@@ -10,16 +10,8 @@
   {{#each comments as |comment|}}
     <p>{{comment.commentBody}} - {{user.userName}} on {{format_date createdAt}} </p>
   
-  {{#if loggedIn}}
-    <a href="/dashboard/editComment/{{comment.id}}" class="edit-link">Edit/Delete Comment</a>
-  {{/if}}
-  {{/each}}
-
- 
-  
-
-
- 
+{{/each}}
+{{!-- {{> comments}} --}}
 <br>
 <br>
 

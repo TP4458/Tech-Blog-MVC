@@ -1,67 +1,15 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
-  try {
-    const dbCommData = await Comment.findAll();
-    res.json(dbCommData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 router.post('/', withAuth, async (req, res) => {
+  const body = req.body;
   try {
     const newComment = await Comment.create({
-      commentBody: req.body.commentBody,
-      postId: req.body.postId,
-      userId: req.session.userid,
+      ...body,
+      userId: req.session.userId,
     });
-    res.status(200).json(newComment);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.put('/:id', withAuth, async (req, res) => {
-  try {
-    const editComment = await Comment.update(
-      {
-        userId: req.session.userId,
-        commentBody: req.body.commentBody,
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    );
-    if (!editComment[0]) {
-      res.status(404).json({
-        message: 'no comment found with this ID',
-      });
-      return;
-    }
-    res.status(200).json(editComment);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.delete(':/id', withAuth, async (req, res) => {
-  try {
-    const dbCommData = await Comment.destroy({
-      where: {
-        id: req.params.id,
-        userId: req.session.userId,
-      },
-    });
-    if (!dbCommData) {
-      res.status(404).json({ message: 'No comment found for this user!' });
-      return;
-    }
-    res.status(200).json(dbCommData);
+    res.status(200).json({ newComment, success: true });
   } catch (err) {
     res.status(500).json(err);
   }
