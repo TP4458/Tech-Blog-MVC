@@ -25,19 +25,23 @@
 
   {{#if posts.length}}
     <div class='col-md-6 post-list'>
-      <h3>Current Blog Posts:</h3>
+      <h3>Check out your posts here!:</h3>
 
       {{#each posts as |post|}}
         <div class='row mb-2'>
           <div class='col-md-8'>
             <h4><a
+                class='post-link'
                 id='created-blogs'
                 href='/posts/{{post.id}}'
-              >{{post.title}}</a></h4>
+              > >{{post.title}}</a></h4>
           </div>
           <div class='col-md-4'>
-            <a href='/dashboard/editPost/{{post.id}}' class='edit-link'>Edit
-              post</a>
+            <a
+              class='post-link'
+              href='/dashboard/editPost/{{post.id}}'
+              class='edit-link'
+            >Edit post</a>
             <button
               class='btn btn-sm btn-danger'
               data-id='{{post.id}}'
