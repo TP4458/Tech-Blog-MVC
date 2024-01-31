@@ -1,16 +1,17 @@
-<div class="text-center" id="blog-by-id">
-  <h2>{{title}}</h2>
+<div id="blog-by-id">
+  <h2 class="text-center">{{title}}</h2>
     <hr>
-      <p>Blog post by: {{user.userName}} on {{format_date createdAt}}</p>
+      <p class="lead">Posted by: {{user.userName}} on {{format_date createdAt}}</p>
       <p>{{content}}</p>
     <hr>
-
+<div class="text-center">
     <h5>Comments:</h5>  
-
+<br>
   {{#each comments as |comment|}}
     <p>{{comment.commentBody}} - {{user.userName}} on {{format_date createdAt}} </p>
-  
+ 
 {{/each}}
+ </div>
 {{!-- {{> comments}} --}}
 <br>
 <br>

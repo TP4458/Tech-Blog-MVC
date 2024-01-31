@@ -5,6 +5,14 @@
 
 body {
   font-family: 'Rubik', sans-serif;
+  background-color: #d0cfd3;
+}
+.post-link {
+  text-decoration: none;
+  color: black;
+}
+.post-link:hover {
+  color: #a14629;
 }
 
 #blog-post {
@@ -14,7 +22,8 @@ body {
 }
 
 #blog-title {
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
   color: black;
   font-weight: 300;
 }
@@ -35,6 +44,9 @@ body {
   display: none;
 }
 
+.navbar {
+  background-color: #382f24;
+}
 hr {
   margin-inline-start: 70px;
   margin-inline-end: 70px;
@@ -50,8 +62,8 @@ hr {
   border-radius: 0.3rem;
   border: 1px solid transparent;
   outline: none;
-  color: #1a1a1a;
-  background-color: #aeaeae;
+  color: #dad9d9;
+  background-color: #a14629;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
